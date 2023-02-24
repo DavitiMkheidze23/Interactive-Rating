@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Rating</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+    <div class="Main-div">
+        <div class="Icon-div">
+        <img src="icon-star.svg" class="Icon-img">
+        </div>
+        <h1>How did we do?</h1>
+        <p class="First-p">Please let us know how we did with your support
+             request. All feedback is appreciated to help us
+              improve our offering!
+        </p>
+        <div class="Button-divs">
+            <button class="Button-">1</button>
+            <button class="Button-">2</button>
+            <button class="Button-">3</button>
+            <button class="Button-">4</button>
+            <button class="Button-">5</button>
+            
+        </div>
+        <button class="Submit-button">
+            SUBMIT
+        </button>
+    </div>
+    <div class="Second-div">
+        <div class="Illustration-div">
+            <img src="illustration-thank-you.svg" class="Illustration-img">
+        </div>
+        <p class="Selected-p">
+            You selected 
+            <span id="rating" style="margin: 0 0.3rem"></span>
+            out of 5
+        </p>
+        <h2>
+            Thank you!
+        </h2>
+        <p class="Second-p">
+            We appreciate you taking
+             the time to give a rating. 
+             If you ever need more support,
+              don’t hesitate to get in touch!
+        </p>
+    </div>
+    <script>
+        const submitButton = document.querySelector(".Submit-button");
+        const mainDiv = document.querySelector(".Main-div");
+        const clicked = document.querySelector(".Second-div");
+        const buttons = document.querySelectorAll(".Button-")
+        const rating = document.getElementById("rating")
+
+        submitButton.addEventListener('click', function(){
+            mainDiv.style.display = "none";
+            clicked.style.display = "inline";
+        })
+
+        buttons.forEach((button) => {
+        button.addEventListener('click', function(){
+            rating.innerHTML = button.innerHTML
+        })})
+    </script>
+</body>
+</html>
